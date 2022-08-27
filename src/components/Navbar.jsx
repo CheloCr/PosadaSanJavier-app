@@ -5,13 +5,14 @@ import React from "react";
 import styled from "styled-components";
 import myImage from "./../images/Posada_Logo.png"
 
-//todo creating with styled components
-//div will be used
+
+//todo  ------------- STYLE WITH STYLED COMPONENTS -----------
+
+
 const Container = styled.div`
   height: 75px;
-  background-color: black;
+  background-color:#111111;
   color: white;
- border-radius: 0 0 10px 10px;
 `;
 const Margin = styled.div`
   padding: 10px 20px;
@@ -34,8 +35,10 @@ const SearchBar = styled.div`
 
 const Input = styled.input`
   border: none;
+  border-radius: 2px;
   height:20px;
   margin-right: 5px;
+  width: 200px;
 `
 
 //---------------- Center side --------------------
@@ -65,7 +68,7 @@ const MenuItem = styled.div`
   margin-left: 25px;
 `;
 
-
+//todo  ------------- FUNCTION -------------
 
 const Navbar = () => {
   return (
@@ -73,7 +76,7 @@ const Navbar = () => {
       <Margin>
         <Left>
           <SearchBar>
-            <Input />
+            <Input/>
             <Search style={{ fontSize:20}} />
           </SearchBar>
         </Left>
