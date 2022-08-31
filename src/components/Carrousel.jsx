@@ -4,7 +4,7 @@ import {
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
 import { useState } from "react";
-import { carrouselItems } from "../CarrouselData";
+import { carrouselItems } from "../generalData";
 
 //todo  ------------- STYLE WITH STYLED COMPONENTS -----------
 
@@ -12,7 +12,7 @@ import { carrouselItems } from "../CarrouselData";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -29,7 +29,7 @@ const Arrows = styled.div`
   align-items: center;
   position: absolute;
   top: 0;
-  bottom: 200px;
+  bottom: 100px;
   left: ${ props => props.direction === "Left" && "50px"};
   right: ${ props => props.direction === "Right" && "50px"};
   margin: auto;
@@ -135,7 +135,7 @@ const Carrousel = () => {
 
       <Wrapper slideIndex = {slideIndex}>
         {carrouselItems.map((item) => (
-        <Slides>
+        <Slides key = {item.id}>
           <ImagesContainer>
             <Image src={item.img}/>
           </ImagesContainer>
