@@ -51,7 +51,7 @@ const NewsLetter = () => {
   return (
     <Container>
         <Title>NewsLetter</Title>
-        <Description>Recibe nustras promociones</Description>
+        <Description>Recibe nuestras promociones</Description>
         <InputContainer>
             <Input placeholder='Tu correo'/>
             <Button>

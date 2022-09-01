@@ -55,7 +55,7 @@ export const popularDishes = [
     },
     {
         id: 2,
-        img:"https://media-cdn.tripadvisor.com/media/photo-s/1c/a4/8b/41/restaurant-la-arrachera.jpg",
+        img:"https://www.comedera.com/wp-content/uploads/2022/06/Michelada-shutterstock_2062830746.jpg",
     },
     {
         id: 3,
@@ -67,7 +67,7 @@ export const popularDishes = [
     },
     {
         id: 5,
-        img:"http://www.mexican-authentic-recipes.com/images/chilaquiles_rojos_pollo.jpg",
+        img:"https://ca-times.brightspotcdn.com/dims4/default/b761fa1/2147483647/strip/true/crop/6000x4000+0+0/resize/840x560!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fbb%2F36%2F2561fa704f068d44afb0e1439e7e%2Fistock-1188980289.jpg",
     },
     {
         id: 6,
@@ -75,7 +75,8 @@ export const popularDishes = [
     },
     {
         id: 7,
-        img:"https://www.comedera.com/wp-content/uploads/2022/06/Michelada-shutterstock_2062830746.jpg",
+        img:"https://media-cdn.tripadvisor.com/media/photo-s/1c/a4/8b/41/restaurant-la-arrachera.jpg",
+        
     },
     {
         id: 8,

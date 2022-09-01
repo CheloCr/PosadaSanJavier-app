@@ -104,6 +104,10 @@ const InfoButton = styled.button`
   align-items: center;
   font-size: 15px;
   color: #443141;
+
+  &:hover{
+        transform: scale(1.1);
+    }
 `
 
 
