@@ -17,6 +17,7 @@ const Information = styled.div`
     justify-content: center;
     transition: all 0.5s ease;
     cursor: pointer;
+    border-radius: 10px;
 `
 
 const Container = styled.div `
@@ -48,6 +49,7 @@ const Image = styled.img`
     height: 100%;
     object-fit: cover;
     z-index: 2;
+    border-radius: 10px;
 `
 
 

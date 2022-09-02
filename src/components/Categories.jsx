@@ -9,6 +9,11 @@ const Container = styled.div`
     padding: 20px;
     justify-content: space-between;
 
+    @media only screen and (max-width:430px) {
+    padding: 0;
+    flex-direction: column;
+  }
+
 `
 
 

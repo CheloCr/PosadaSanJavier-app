@@ -11,6 +11,13 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 5px;
+   
+    @media only screen and (max-width:430px) {
+    height: 30vh;
+  }
+
+    
 `
 const Information = styled.div`
     position: absolute;
@@ -26,6 +33,8 @@ const Information = styled.div`
 const Title = styled.h1`
     color: white;
     margin-bottom: 20px;
+    text-shadow: 2px 2px black;
+
 `
 const Button = styled.button`
  cursor: pointer;
@@ -40,6 +49,10 @@ const Button = styled.button`
   align-items: center;
   font-size: 15px;
   color: #443141;
+  -webkit-box-shadow: 11px 4px 17px -1px rgba(0,0,0,0.63);
+-moz-box-shadow: 11px 4px 17px -1px rgba(0,0,0,0.63);
+box-shadow: 11px 4px 17px -1px rgba(0,0,0,0.63);
+
 
   &:hover{
         transform: scale(1.1);

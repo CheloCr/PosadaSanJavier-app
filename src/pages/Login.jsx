@@ -21,17 +21,33 @@ const Wrapper = styled.div`
     padding: 20px;
     background-color: white;
     border-radius: 10px;
+
+    @media only screen and (max-width:430px) {
+    padding: 0;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 const Title = styled.h1`
     font-size: 24px;
     font-weight: 300;
 
+    @media only screen and (max-width:430px) {
+    padding: 5px;
+    margin-top: 10px;
+    text-align: center;
+
+  }
+
 `
 
 const Form = styled.form`
     display: flex;
     flex-direction: column;
+
 
 `
 
@@ -40,6 +56,13 @@ const Input = styled.input`
     min-width: 40%;
     margin: 10px 0 ;
     padding: 10px;
+
+    @media only screen and (max-width:430px) {
+        width: 80%;
+        margin: 20px 12px;
+        
+
+  }
 
 `
 
@@ -64,6 +87,14 @@ cursor: pointer;
         transform: scale(1.1);
     }
 
+
+    @media only screen and (max-width:430px) {
+        width: 80%;
+        margin: 20px 25px;
+        display: flex;
+        justify-content: center;
+  }
+
 `
 
 const Link = styled.a`
@@ -72,6 +103,15 @@ const Link = styled.a`
   text-decoration: underline;
   cursor: pointer;
   display: flex;
+
+
+  @media only screen and (max-width:430px) {
+        width: 80%;
+        margin: 15px 25px;
+        display: flex;
+        justify-content: center;
+  }
+
 `
 
 const Login = () => {

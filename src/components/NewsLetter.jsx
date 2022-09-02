@@ -5,7 +5,7 @@ import {SendOutlined} from "@material-ui/icons"
 
 
 const Container = styled.div`
-   height: 60vh;
+   height: 50vh;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -15,12 +15,21 @@ const Container = styled.div`
 const Title = styled.h2`
     font-size: 70px;
     margin-bottom: 20px;
+
+    @media only screen and (max-width:430px) {
+        font-size: 60px;
+  }
 `
 
 const Description = styled.div`
     font-size: 30px;
     font-weight: 300;
     margin-bottom: 20px;
+
+    @media only screen and (max-width:430px) {
+    text-align: center;
+    font-size: 25px;
+  }
 `
 
 const InputContainer = styled.div`
@@ -30,6 +39,10 @@ const InputContainer = styled.div`
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
+
+    @media only screen and (max-width:430px) {
+    width: 80%;
+  }
 `
 
 const Input = styled.input`

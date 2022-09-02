@@ -6,6 +6,11 @@ import {Facebook,Instagram,Phone,Room,Mail} from "@material-ui/icons";
 const Container = styled.div`
     display: flex;
     background-color:#111111 ;
+
+    @media only screen and (max-width:430px) {
+    flex-direction: column;
+    
+  }
 `
 
 //---------------- Left side --------------------
@@ -51,6 +56,10 @@ const SideCenter = styled.div`
     justify-content: center;
     align-items: center;
      flex: 1;
+
+     @media only screen and (max-width:430px) {
+        display: none;
+  }
 `
 
 
@@ -89,6 +98,7 @@ const ContactItem = styled.div`
 
 const Payment = styled.img`
     width: 50%;
+    margin-bottom: 20px;
 `
 
 

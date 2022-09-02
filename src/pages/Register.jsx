@@ -21,11 +21,28 @@ const Wrapper = styled.div`
     padding: 20px;
     background-color: white;
     border-radius: 10px;
+
+    @media only screen and (max-width:430px) {
+    padding: 0;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+    
 `
 
 const Title = styled.h1`
     font-size: 24px;
     font-weight: 300;
+
+    @media only screen and (max-width:430px) {
+    padding: 5px;
+    margin-top: 10px;
+    text-align: center;
+
+  }
 
 `
 
@@ -42,11 +59,29 @@ const Input = styled.input`
     margin: 20px 20px 0 0 ;
     padding: 10px;
 
+    @media only screen and (max-width:430px) {
+        width: 80%;
+        margin: 10px 12px;
+        
+
+  }
+
 `
 
 const Terms = styled.span`
     font-size: 13px;
     margin:20px 0;
+
+    @media only screen and (max-width:430px) {
+        width: 80%;
+        margin: 15px 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 11px;
+        text-align: center;
+  }
+
 
 `
 
@@ -57,7 +92,7 @@ cursor: pointer;
   font-family: Helvetica, "sans-serif";
   transition: all 0.2s;
   padding: 10px 20px;
-  border-radius: 100px;
+  border-radius: 10px;
   background: #f6b162;
   border: 1px solid transparent;
   display: flex;
@@ -68,6 +103,13 @@ cursor: pointer;
   &:hover{
         transform: scale(1.1);
     }
+
+    @media only screen and (max-width:430px) {
+        width: 80%;
+        margin: 20px 25px;
+        display: flex;
+        justify-content: center;
+  }
 
 `
 

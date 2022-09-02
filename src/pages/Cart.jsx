@@ -10,6 +10,10 @@ const Container = styled.div`
 `
 const Wrapper = styled.div`
     padding: 20px;
+
+    @media only screen and (max-width:430px) {
+        padding: 10px;
+  }
 `
 const Title = styled.h1`
     font-weight: 300;
@@ -41,11 +45,18 @@ const TextOne = styled.span`
     text-decoration: underline;
     cursor: pointer;
     margin: 0 10px;
+    @media only screen and (max-width:430px) {
+        display: none;
+  }
 `
 
 const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media only screen and (max-width:430px) {
+    flex-direction: column;
+  }
 `
 
 const Info = styled.div`
@@ -112,16 +123,15 @@ const Button = styled.button`
     
 `
 
-
-
-
-
 const Product = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
     margin-top: 10px;
-
+    
+    @media only screen and (max-width:430px) {
+    flex-direction: column;
+  }
     
 `
 
@@ -132,6 +142,10 @@ const ProductDetails = styled.div`
 
 const Image = styled.img`
     width: 300px;
+
+    @media only screen and (max-width:430px) {
+        width: 200px;
+}
     
 `
 
@@ -140,6 +154,7 @@ const Details = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: space-around;
+   
     
 `
 
@@ -165,17 +180,30 @@ const ProductAmountContainer = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+
+    @media only screen and (max-width:430px) {
+    margin: 25px 15px;
+  }
+    
 `
 
 const ProductAmount = styled.div`
     font-size: 24px;
     margin: 5px;
+
+    @media only screen and (max-width:430px) {
+    margin: 5px 25px;
+  }
     
 `
 
 const ProductPrice = styled.div`
     font-size: 30px;
     font-weight: 200;
+
+    @media only screen and (max-width:430px) {
+    margin-bottom: 10px;
+  }
     
 `
 

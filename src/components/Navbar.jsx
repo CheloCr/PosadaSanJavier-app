@@ -6,6 +6,7 @@ import styled from "styled-components";
 import myImage from "./../images/Posada_Logo.png"
 
 
+
 //todo  ------------- STYLE WITH STYLED COMPONENTS -----------
 
 
@@ -13,12 +14,25 @@ const Container = styled.div`
   height: 75px;
   background-color:#111111;
   color: white;
+  
+
+  @media only screen and (max-width:430px) {
+    height: 70px;
+  }
+  
+  
 `;
 const Margin = styled.div`
   padding: 10px 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media only screen and (max-width:430px) {
+    padding: 10px 0;
+  }
+
+  
 `;
 //---------------- Left side --------------------
 const Left = styled.div`
@@ -31,6 +45,10 @@ const SearchBar = styled.div`
   align-items: center;
   margin-left: 20px;
   padding: 5px;
+
+  @media only screen and (max-width:430px) {
+    display: none;
+  }
 `
 
 const Input = styled.input`
@@ -52,6 +70,14 @@ const Center = styled.div`
 const Logo = styled.img`
   width: 80px;
     height: 50px;
+
+    @media only screen and (max-width:430px) {
+      width: 80px;
+      height: 50px;
+      margin: 0 10px 0 -130px;
+      
+
+  }
 `;
 
 //---------------- Right side --------------------
@@ -60,12 +86,25 @@ const Right = styled.div`
 display: flex;
 justify-content:flex-end ;
   flex: 1;
+
+  @media only screen and (max-width:430px) {
+    flex: 3;
+    justify-content:space-around;
+    margin-right: 10px;
+
+  }
 `;
 
 const MenuItem = styled.div`
   font-size: 16px;
   cursor: pointer;
   margin-left: 25px;
+
+  @media only screen and (max-width:430px) {
+    font-size: 14px;
+    margin-left: 10px;
+
+  }
 `;
 
 //todo  ------------- FUNCTION -------------

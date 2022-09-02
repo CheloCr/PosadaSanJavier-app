@@ -11,6 +11,11 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 30px;
   display: flex;
+
+  @media only screen and (max-width:430px) {
+    flex-direction: column;
+    padding: 10px;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -19,13 +24,22 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 70vh;
+  height: 50vh;
   object-fit: cover;
+  border-radius: 10px;
+
+  @media only screen and (max-width:430px) {
+    height: 30vh;
+  }
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0 50px;
+
+  @media only screen and (max-width:430px) {
+    padding: 10px;
+  }
 `;
 
 const Title = styled.h1`
@@ -47,6 +61,10 @@ const AddContainer = styled.div `
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media only screen and (max-width:430px) {
+      width: 100%;
+  }
 `
 
 const AmountContainer = styled.div `

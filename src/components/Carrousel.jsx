@@ -16,6 +16,10 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width:430px) {
+    display: none;
+  }
 `;
 //---------------- Arrows --------------------
 
@@ -65,14 +69,15 @@ const ImagesContainer = styled.div`
 
 const Image = styled.img`
   height: 70%;
+  border-radius: 0 10px 10px 0;
 `;
 
 //---------------- Container for Information Right --------------------
 
 const InfoContainer = styled.div`
   flex: 1;
-  padding: 50px;
-  margin-bottom: 100px;
+  padding: 70px;
+  margin-bottom: 200px;
 `;
 
 const InfoTitle = styled.h1`
@@ -97,6 +102,7 @@ const InfoButton = styled.button`
   font-family: Helvetica, "sans-serif";
   transition: all 0.2s;
   padding: 10px 20px;
+  margin-bottom: 20px;
   border-radius: 100px;
   background: #f6b162;
   border: 1px solid transparent;
