@@ -31,16 +31,19 @@ export const categories = [
         id: 1,
         img:"https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/molletes-sanborns-receta.jpg",
         title:"DESAYUNOS",
+        category:"desayunos"
     },
     {
         id: 2,
         img:"https://vivirmejor.mx/wp-content/uploads/2020/08/Comida-Tipica-Mexicana-Pozole-Portada.jpg",
         title:"COMIDAS",
+        category:"comidas"
     },
     {
         id: 3,
-        img:"https://images.otstatic.com/prod1/34211956/4/large.png",
-        title:"FAVORITOS",
+        img:"https://asset1.zankyou.com/images/mag-card-t/6be/f892/600/314/-/co/wp-content/uploads/2018/05/befunky-collage-51.jpg",
+        title:"BEBIDAS",
+        category:"bebidas"
     },
 
 ]
@@ -50,7 +53,7 @@ export const categories = [
 
 export const popularDishes = [
     {
-        id: 1,
+        id: "63192265d3d4a5a5dd7e4fcc",
         img:"https://progcarne.com/storage/app/uploads/public/608/726/9bd/6087269bd3a39023021646.jpg",
     },
     {

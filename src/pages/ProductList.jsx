@@ -1,4 +1,7 @@
 
+import { CollectionsOutlined } from '@mui/icons-material'
+import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -49,25 +52,43 @@ const Option = styled.option`
 `
 
 const ProductList = () => {
+
+    const location = useLocation()
+    console.log("LOCATION2",location)
+    const cat = location.pathname.split("/")[2]
+    console.log("EL cat",cat)
+    const[filters,setfilters] = useState({})
+
+    const handleFilters = (e) => {
+        const value = e.target.value
+        console.log("el value",value)
+        setfilters({
+            
+            [e.target.name]:value
+        })
+    }
+
+    
+
   return (
     <Container>
         <Navbar/>
         <Publicity/>
-        <Title>Favoritos</Title>
+        <Title>{cat}</Title>
         <FilterContainer>
             <Filter>
                 <FilterText> Filtrar productos:</FilterText>
-                <Select>
-                    <Option disabled selected>
+                <Select name="comidas" onChange={handleFilters}>
+                    <Option>
                         Seleccionar
                     </Option>
                     <Option>Bebidas</Option>
-                    <Option>Comida</Option>
+                    <Option>comidas</Option>
 
                 </Select>
             </Filter>
         </FilterContainer>
-        <ProductsLists/>
+        <ProductsLists cat={cat} filters={filters}/>
         <Footer/>
     </Container>
   )

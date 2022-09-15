@@ -1,5 +1,7 @@
 
 import styled from "styled-components"
+import {Link} from 'react-router-dom'
+
 
 
 const Container = styled.div`
@@ -64,11 +66,13 @@ box-shadow: 11px 4px 17px -1px rgba(0,0,0,0.63);
 const CategoriesItems = ({item}) => {
   return (
     <Container>
+      <Link to = {`/products/${item.category}`}>
         <Image src={item.img}/>
         <Information>
             <Title>{item.title}</Title>
             <Button>Ordenar</Button>
         </Information>
+        </Link>
     </Container>
   )
 }

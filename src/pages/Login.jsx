@@ -120,7 +120,7 @@ const Login = () => {
        <Wrapper>
             <Title>Ingresar a mi Cuenta</Title>
             <Form>
-                <Input placeholder = "Usuario"/>
+                <Input placeholder = "Email"/>
                 <Input placeholder = "Contraseña"/>
                 
             </Form>

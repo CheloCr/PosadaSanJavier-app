@@ -4,18 +4,28 @@ import OneProduct from "./pages/OneProduct";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import { BrowserRouter as Router, Route, Routes, Redirec} from 'react-router-dom'
+
 
 
 function App() {
+
+  const user = true 
+
   return (
-    <div className="App">
-      {/* <Home/> */}
-      {/* <ProductList/> */}
-      {/* <OneProduct/> */}
-      {/* <Register/> */}
-      {/* <Login/> */}
-      <Cart/>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home/>} />
+        <Route path="/products/:category" element={<ProductList/>} />
+        <Route path="/product/:id" element={<OneProduct/>} />
+        <Route path="/cart" element={<Cart/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+      </Routes>
+    </Router>
+
+
+
   );
 }
 

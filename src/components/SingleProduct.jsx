@@ -1,6 +1,7 @@
 
 import styled from 'styled-components'
 import {AddShoppingCartOutlined,SearchOutlined,FavoriteBorderOutlined} from "@material-ui/icons"
+import { Link } from 'react-router-dom'
 
 //? This need to be on the top due to hover effect on Container
 const Information = styled.div`
@@ -82,7 +83,9 @@ const SingleProduct = ({item}) => {
                 <AddShoppingCartOutlined/>
             </Icon>
             <Icon>
+                <Link to={`/product/${item._id}`}>
                 <SearchOutlined/>
+                </Link>
             </Icon>
             <Icon>
                 <FavoriteBorderOutlined/>

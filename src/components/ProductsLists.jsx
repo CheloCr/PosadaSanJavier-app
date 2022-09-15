@@ -1,7 +1,11 @@
 
+import { useState,useEffect } from 'react'
 import styled from 'styled-components'
 import {popularDishes} from "../generalData"
 import SingleProduct from './SingleProduct'
+
+import axios from "axios"
+
 
 
 const Container = styled.div ` 
@@ -13,15 +17,46 @@ const Container = styled.div `
 `
 
 
-const ProductsLists = () => {
+const ProductsLists = ({cat,filters}) => {
+  
+
+  const [products,setProducts] = useState([])
+  const [filterdProducts,setFilteredProducts] = useState([])
+
+   useEffect(() => {
+      const getPorducts = async () => {
+        console.log("ENTRANDO AL GER PRODUCTS")
+        try {
+          const res = await axios.get( 
+            cat 
+            ? `http://localhost:5000/api/products?category=${cat}` 
+            : "http://localhost:5000/api/products" )
+          
+            setProducts(res.data)
+            
+        } catch (error) {
+          
+        }
+      }
+      getPorducts()
+   },[cat])
+
+   useEffect(() => {
+    cat && 
+    setFilteredProducts(
+      products.filter((item) => Object.entries(filters).every(([key,value]) => 
+        item[key].includes(value)
+      ) )
+    )
+   },[products,cat,filters])
+
   return (
     <Container>
-        {popularDishes.map(item => (
-            //? Warning: Each child in a list should have a unique "key" prop.
-            //? this error is because we need to state a key on .MAP
-            <SingleProduct item = {item} key = {item.id} />
-
-        ))}
+       {cat
+        ? filterdProducts.map((item) => <SingleProduct item={item} key={item.id} />)
+        : products
+            .slice(0, 7)
+            .map((item) => <SingleProduct item={item} key={item.id} />)}
     </Container>
   )
 }

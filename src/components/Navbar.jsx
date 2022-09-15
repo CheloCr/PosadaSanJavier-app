@@ -4,6 +4,8 @@ import { ShoppingBagOutlined } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
 import myImage from "./../images/Posada_Logo.png"
+import {useSelector} from "react-redux"
+import { Link } from 'react-router-dom'
 
 
 
@@ -110,6 +112,11 @@ const MenuItem = styled.div`
 //todo  ------------- FUNCTION -------------
 
 const Navbar = () => {
+
+  const quantity = useSelector(state=>state.cart.quantity)
+
+  console.log("EL QTTYYYYY",quantity)
+
   return (
     <Container>
       <Margin>
@@ -121,17 +128,21 @@ const Navbar = () => {
         </Left>
 
         <Center>
-          <Logo src={myImage} />
+          <Link to="/">
+          <Logo src={myImage}   />
+          </Link>
         </Center>
 
         <Right>
           <MenuItem>Registrarme</MenuItem>
           <MenuItem>Mi cuenta</MenuItem>
+          <Link to="/cart">
           <MenuItem>
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={quantity} color="primary">
               <ShoppingBagOutlined/>
             </Badge>
           </MenuItem>
+          </Link>
         </Right>
       </Margin>
     </Container>

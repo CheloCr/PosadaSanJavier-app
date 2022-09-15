@@ -4,6 +4,13 @@ import Navbar from "../components/Navbar";
 import NewsLetter from "../components/NewsLetter";
 import Publicity from "../components/Publicity";
 import {Remove,Add} from "@material-ui/icons"
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { Identity } from "@mui/base";
+import { publicRequest } from "../requestMethods";
+import { useState } from "react";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 
 const Container = styled.div``;
@@ -108,33 +115,65 @@ cursor: pointer;
 
 
 const OneProduct = () => {
+  const location = useLocation()
+  console.log("LOCATION",location)
+  const id = location.pathname.split("/")[2];
+  console.log("EL DI",id)
+  const [product,setPorduct] = useState({})
+  const[quantity,setQuantity] = useState(1)
+  const dispatch = useDispatch()
+
+  useEffect(()=> {
+    const getPorduct = async () => {
+     
+      try {
+        const res = await publicRequest.get("/products/find/" + id)
+        setPorduct(res.data)
+         console.log("el res",res)
+      } catch (error) {
+        
+      }
+    }
+    getPorduct()
+  },[id])
+
+
+  //Inc-Dec Quantity
+  const handleQuantity = (type) => {
+    if(type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1)
+    } else {
+      setQuantity(quantity + 1)
+    }
+  }
+
+  //update shopping cart
+  const handleClick = () => {
+    dispatch(addProduct({...product,quantity}));
+  };
+
   return (
     <Container>
       <Navbar />
       <Publicity />
       <Wrapper>
         <ImageContainer>
-          <Image src="https://vivirmejor.mx/wp-content/uploads/2020/08/Comida-Tipica-Mexicana-Pozole-02-Portada.jpg" />
+          <Image src= {product.img} />
         </ImageContainer>
         <InfoContainer>
-          <Title>Pozole del patrón</Title>
-          <Descritpion>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            perferendis suscipit alias est reiciendis, quis dolorem dolores
-            nostrum blanditiis eligendi illum aliquam molestias, delectus itaque
-            dicta, ipsum dolore exercitationem possimus.
-          </Descritpion>
-          <Price>$ 195</Price>
+          <Title>{product.title}</Title>
+          <Descritpion>{product.description}</Descritpion>
+          <Price>$ {product.price}</Price>
 
-          <AddContainer>
+          <AddContainer>  
 
           <AmountContainer>
-            <Remove/>
-            <Amount>1</Amount>
-            <Add/>
+            <Remove onClick={()=>handleQuantity("dec")}/>
+            <Amount>{quantity}</Amount>
+            <Add onClick={()=>handleQuantity("inc")}/>
           </AmountContainer>
 
-          <Button>Añadir a carrito</Button>
+          <Button onClick={handleClick}>Añadir a carrito</Button>
 
           </AddContainer>
 
