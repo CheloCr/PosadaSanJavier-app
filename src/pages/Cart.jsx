@@ -4,6 +4,15 @@ import Navbar from "../components/Navbar";
 import Publicity from "../components/Publicity";
 import { Remove, Add } from "@material-ui/icons";
 import { useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
+import { useEffect, useState } from "react";
+import { userRequest } from "../requestMethods";
+import { useNavigate } from 'react-router-dom'
+
+
+
+
+const KEY= "pk_test_51LfZ7wE7x33lI2SbErxexQsMjC8uTRqKNK6sN7QhRcGsuNn2LmolQextmCwYppv8GID0wvDW426Pq0Zqh8nzgLJi00OqVPrSHL"
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -176,10 +185,37 @@ const ProductPrice = styled.div`
   }
 `;
 
-const Cart = () => {
 
-    const cart = useSelector((state) => state.cart);
+
+
+const Cart = () => {
+  const cart = useSelector((state) => state.cart);
   
+  const [stripeToken,setStripeToken] = useState(null)
+  const history = useNavigate();
+ 
+
+  const onToken = (token) => {
+    setStripeToken(token)
+  }
+
+  console.log("EL STRIPE TOKEN",stripeToken)
+
+  useEffect(()=>{
+    const makeRequest = async () => {
+        try {
+            const res = await userRequest.post("/checkout/payment",{
+                tokenId:stripeToken.id,
+                amount:100
+            })
+            history.push("/success",{data:res.data})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    stripeToken &&  makeRequest()
+  },[stripeToken,cart.total,history])
+
 
   return (
     <Container>
@@ -197,28 +233,31 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
-          {cart.products.map((product) => (
-            <Product>
-              <ProductDetails>
-                <Image src={product.img}/>
-                <Details>
-                  <ProductName>
-                    <b>Producto:</b> {product.title}
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> {product._id}
-                  </ProductId>
-                </Details>
-              </ProductDetails>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>{product.quantity}</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice> $ {product.price * product.quantity}</ProductPrice>
-              </PriceDetail>
-            </Product>
+            {cart.products.map((product) => (
+              <Product>
+                <ProductDetails>
+                  <Image src={product.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Producto:</b> {product.title}
+                    </ProductName>
+                    <ProductId>
+                      <b>ID:</b> {product._id}
+                    </ProductId>
+                  </Details>
+                </ProductDetails>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <Add />
+                    <ProductAmount>{product.quantity}</ProductAmount>
+                    <Remove />
+                  </ProductAmountContainer>
+                  <ProductPrice>
+                    {" "}
+                    $ {product.price * product.quantity}
+                  </ProductPrice>
+                </PriceDetail>
+              </Product>
             ))}
           </Info>
           <Summary>
@@ -239,7 +278,17 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <Button>Confirmar pedido</Button>
+            <StripeCheckout
+              name="Posada Tienda"
+              image="https://scontent.fmex27-1.fna.fbcdn.net/v/t1.6435-9/163341734_115956527183795_5480567081216859282_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=lQDIJX9aFO0AX_Uqgwm&_nc_ht=scontent.fmex27-1.fna&oh=00_AT9Sbbi3F816pL4Tb3MPjrGzN8WWgGBj5fy5jEjMxORxFg&oe=634AC613"
+              billingAddress
+              shippingAddress
+              description={`Tu total es de $ ${cart.total}`}
+              amount={cart.total*100}
+              token={onToken}
+              stripeKey={KEY}
+            ></StripeCheckout>
+            
           </Summary>
         </Bottom>
       </Wrapper>
